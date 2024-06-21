@@ -1,0 +1,31 @@
+-- Problem_1 Create a database called blogdatabase.
+create database blogdatabase;
+use blogdatabase;
+
+-- Problem_2 Create a table called user with the following columns:
+create table users (
+	id int primary key auto_increment,
+	username int not null,
+	email varchar(50),
+	pass varchar(50)
+);
+
+-- Problem_3 Update the data type of the name column from int to varchar(50).
+ALTER TABLE users
+MODIFY COLUMN username varchar(50) not null;
+
+-- Problem_4 Add a new column called isStudent (Boolean) to the user table.
+ALTER TABLE users
+ADD is_student boolean; 
+ 
+-- Problem_5 Insert 5 dummy data entries into the user table. Ensure the data reflects a realistic scenario where each field is populated according to its data type.
+insert into users (username, email, pass) values("Kunal", "kunal@123", "123"), ("Harsh", "harsh@123", "345"), ("Shivam", "shivam@123", "445"), ("suchit", "suchit@123", "5545"), ("Lala", "lala@123", "785");
+
+UPDATE users
+SET is_student = True;
+
+-- Problem_6 Delete all the data from the user table without deleting the table schema.
+delete from users;
+
+-- Problem_7 Delete the user table schema.
+DROP TABLE users;

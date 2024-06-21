@@ -1,0 +1,40 @@
+create database e_commerce;
+use e_commerce;
+create table user_add(
+	first_name varchar(50) not null,
+    last_name varchar(50),
+    phone INT NOT NULL, CHECK (phone BETWEEN 1000000000 AND 9999999999),
+    email varchar(100) not null,
+    street varchar(200) not null,
+    apt varchar(100),
+    city varchar(100) not null,
+    state varchar(100) not null,
+    zip_code int not null CHECK (zip_code BETWEEN 100000 AND 999999),
+    check_box boolean not null
+);
+
+insert into user_add (first_name,
+    last_name,
+    phone,
+    email,
+    street,
+    apt,
+    city,
+    state,
+    zip_code,
+    check_box) 
+    
+    values("Karan", "Tyagi", 1234567890, "karan12@gmail.com", "powder gali", "near water tank", "Hapur", "UP", 210260, True);
+
+-- how to read all user's addreass 
+select * from user_add;
+
+-- how to update user address
+UPDATE user_add 
+SET city = "Ghaziabad" WHERE first_name = "Karan";
+
+-- how to delete a row in table 
+delete from user_add where first_name = "Karan";
+
+-- filter user_add
+select * from user_add where city = "Ghaziabad";
